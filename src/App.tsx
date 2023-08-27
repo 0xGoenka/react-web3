@@ -6,20 +6,18 @@ import "./App.css";
 
 import Web3 from "web3";
 
-new Web3();
+// const ethEnabled = async () => {
+// if (window.ethereum) {
+//   console.log("Starting Metamask");
+//   await window.ethereum.request({ method: "eth_requestAccounts" });
+//   console.log("Metamask connected");
+// window.web3 = new Web3(window.ethereum);
 
-const ethEnabled = async () => {
-  if (window.ethereum) {
-    console.log("Starting Metamask");
-    await window.ethereum.request({ method: "eth_requestAccounts" });
-    console.log("Metamask connected");
-    // window.web3 = new Web3(window.ethereum);
-
-    // console.log(new Web3());
-    return true;
-  }
-  return false;
-};
+// console.log(new Web3());
+// return true;
+// }
+// return false;
+// };
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,7 +25,9 @@ function App() {
 
   useEffect(() => {
     if (!initialized.current) {
-      ethEnabled();
+      // ethEnabled();
+      new Web3();
+
       console.log("useEffect");
     }
     initialized.current = true;
